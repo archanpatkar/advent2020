@@ -4,6 +4,35 @@ from functools import *
 def p(str):
     pprint(str,indent=4)
 
+def kvd(data,sep=" ",s=":"):
+    kv = data.strip().split(sep);
+    p = {}
+    for e in kv:
+        temp = e.split(s)
+        p[temp[0]] = temp[1]
+    return p
+
+def kvl(data,sep=" ",s=":"):
+    kv = data.strip().split(sep);
+    p = []
+    for e in kv:
+        temp = e.split(s)
+        p.append((temp[0],temp[1]))
+    return p
+
+def periodic(data,pd=lambda s: s == "\n",sep="\n",app=" "):
+    lines = data.split(sep);
+    u = []
+    buff = ""
+    for l in lines:
+        if pd(l):
+            u.append(buff)
+            buff = ""
+        else:
+            buff += "{}{}".format(app,l.strip())
+    u.append(buff)
+    return u
+
 def freq(str):
     l = {}
     for c in str: 
