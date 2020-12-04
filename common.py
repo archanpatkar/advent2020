@@ -24,6 +24,45 @@ def add(list):
 def mult(list):
     return reduce(lambda acc,v: acc*v,list,1)
 
+def ew(str,e):
+    return str.endswith(e)
+
+def sw(str,e):
+    return str.startswith(e)
+
+nums = ["0","1","2","3","4","5","6","7","8","9"]
+
+def alpha(str,cutoff="z",start="a"):
+    n = ord(str)
+    return (n >= ord(start) and n <= ord(cutoff)) or (n >= ord(start.capitalize()) and n <= ord(cutoff.capitalize()))
+
+def minl(l,n):
+    return len(l) >= n
+
+def maxl(l,n):
+    return len(l) <= n
+
+def el(l,n):
+    return len(l) == n
+
+def bi(v,s,e):
+    return v >= s and v <= e;
+
+def be(v,s,e):
+    return v > s and v < e;
+
+def bf(v,s,e):
+    return v >= s and v < e;
+
+def bs(v,s,e):
+    return v > s and v <= e;
+
+def forall(l,f):
+    return reduce(lambda acc,v: acc and f(v),True)
+
+def exists(l,f):
+    return reduce(lambda acc,v: acc or f(v),False)
+
 iden = lambda x: x
 
 def aoci(func=iden):
