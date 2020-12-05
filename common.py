@@ -87,10 +87,20 @@ def bs(v,s,e):
     return v > s and v <= e;
 
 def forall(l,f):
-    return reduce(lambda acc,v: acc and f(v),True)
+    return reduce(lambda acc,v: acc and f(v),l,True)
 
 def exists(l,f):
-    return reduce(lambda acc,v: acc or f(v),False)
+    return reduce(lambda acc,v: acc or f(v),l,False)
+
+def intl(l,sep=","):
+    if(isinstance(l,str)):
+        return [int(v) for v in str.split(sep)]
+    return [int(v) for v in l]
+
+def flol(l,sep=","):
+    if(isinstance(l,str)):
+        return [float(v) for v in str.split(sep)]
+    return [float(v) for v in l]
 
 iden = lambda x: x
 
