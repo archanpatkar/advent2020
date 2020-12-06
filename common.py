@@ -20,7 +20,7 @@ def kvl(data,sep=" ",s=":"):
         p.append((temp[0],temp[1]))
     return p
 
-def periodic(data,pd=lambda s: s == "\n",sep="\n",app=" "):
+def periodic(data,pd=lambda x:not len(x),sep="\n",app=" "):
     lines = data.split(sep);
     u = []
     buff = ""

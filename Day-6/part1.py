@@ -4,7 +4,7 @@ sys.path.append("..")
 from common import *
 
 def parse(data):
-    data = periodic(data,lambda x:not len(x))
+    data = periodic(data)
     return [(freq(l),len(l.split(" "))) for l in [l.strip() for l in data]]
 
 data = aoci(parse);
