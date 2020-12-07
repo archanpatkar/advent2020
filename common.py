@@ -4,6 +4,41 @@ from collections import *
 from math import *
 from itertools import *
 from graphviz import Graph, Digraph
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+
+def scatter3d(x,y,z,name,xl="X",yl="Y",zl="Z"):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_xlabel(xl)
+    ax.set_ylabel(yl)
+    ax.set_zlabel(zl)
+    ax.scatter3D(x,y,z)
+    plt.title(name)
+    plt.savefig('{}.png'.format(name))
+
+def barchart(c,d,name,xl="Sections",yl="Freq"):
+    plt.xlabel(xl)
+    plt.ylabel(yl)
+    plt.grid(True)
+    plt.bar(c,d)
+    plt.title(name)
+    plt.savefig('{}.png'.format(name))
+
+def scatterplot(x,y,name,xl="X",yl="Y"):
+    plt.xlabel(xl)
+    plt.ylabel(yl)
+    plt.grid(True)
+    plt.scatter(x,y)
+    plt.title(name)
+    plt.savefig('{}.png'.format(name))
+
+def piechart(x,name,labels,des="%d"):
+    plt.grid(True)
+    plt.pie(x,labels=labels,autopct=des)
+    plt.title(name)
+    plt.savefig('{}.png'.format(name))
 
 def p(str):
     pprint(str,indent=4)
@@ -224,20 +259,20 @@ def toposort(graph):
             dfs(graph,n,lambda p,c:ts.append((p,c)),visited)
     return ts
 
-def drawGraph(path,graph,process=iden):
-    g = Graph(format='svg',name=path)
+def drawGraph(path,graph,process=iden,format="svg"):
+    g = Graph(format=format,name=path)
     for n in graph:
         for e in graph[n]:
             g.edge(process(n),process(e))
-    g.render()
+    g.render(cleanup=True)
 
-def drawDGraph(path,graph,process=iden):
-    g = Digraph(format='svg',name=path)
+def drawDGraph(path,graph,process=iden,format="svg"):
+    g = Digraph(format=format,name=path)
     for n in graph:
         for e in graph[n]:
             t = process(e)
             g.edge(process(n),t[1],label=str(t[0]))
-    g.render()
+    g.render(cleanup=True)
 
 def aoci(func=iden):
     return func(open("input.txt","r").read());
