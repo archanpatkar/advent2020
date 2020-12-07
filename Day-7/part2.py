@@ -13,6 +13,22 @@ for n in data:
     graph[n[0][:-4].strip()] = [(e.split(" ",1)[0],e.split(" ",1)[1][:-4].strip()) for e in n[1]]
 p(graph)
 
+# VIZ
+drawDGraph("bag_heirarchy_weights",graph)
+
+def rec_count(graph,node,visited=[]):
+    p = []
+    for n in graph:
+        for b in graph[n]:
+            if(b[1] == node):
+                p.append(n)
+                break
+    for n in p:
+        if not (n in visited):
+            rec_count(graph,n,visited)
+            visited.append(n)
+    return visited
+
 def n_count(graph,node,cache={}):
     i = 0
     for n in graph[node]:
@@ -28,3 +44,10 @@ def n_count(graph,node,cache={}):
 
 o = n_count(graph,"shiny gold")
 print(o)
+
+v = rec_count(graph,"shiny gold")
+# VIZ
+ng = {}
+for p in v:
+    ng[p] = graph[p]
+drawDGraph("smaller_weights",ng)

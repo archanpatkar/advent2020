@@ -12,6 +12,10 @@ graph = {}
 for n in data:
     graph[n[0][:-4].strip()] = [e.split(" ",1)[1][:-4].strip() for e in n[1]]
 p(graph)
+graph["other"] = []
+
+# VIZ
+drawGraph("bag_heirarchy",graph)
 
 def rec_count(graph,node,visited=[]):
     p = []
@@ -24,7 +28,13 @@ def rec_count(graph,node,visited=[]):
         if not (n in visited):
             rec_count(graph,n,visited)
             visited.append(n)
-    return len(visited)
+    return visited
 
 o = rec_count(graph,"shiny gold")
-print(o)
+print(len(o))
+
+# VIZ
+ng = {}
+for p in o:
+    ng[p] = graph[p]
+drawGraph("smaller",ng)
