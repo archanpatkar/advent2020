@@ -33,4 +33,4 @@ Advent of Code 2020
 
 ## Day 7
 
-<img src="./Day-6/problem_solution.gv.svg" />
+<img src="./Day-7/problem_solution.gv.svg" />
