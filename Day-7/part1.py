@@ -32,9 +32,10 @@ def rec_count(graph,node,visited=[]):
 
 o = rec_count(graph,"shiny gold")
 print(len(o))
+o.append("shiny gold")
 
 # VIZ
 ng = {}
 for p in o:
-    ng[p] = graph[p]
+    ng[p] = [n for n in graph[p] if n in o]
 drawGraph("smaller",ng)

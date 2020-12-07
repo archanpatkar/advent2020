@@ -46,8 +46,9 @@ o = n_count(graph,"shiny gold")
 print(o)
 
 v = rec_count(graph,"shiny gold")
+v.append("shiny gold")
 # VIZ
 ng = {}
 for p in v:
-    ng[p] = graph[p]
+    ng[p] = [n for n in graph[p] if n[1] in v]
 drawDGraph("smaller_weights",ng)
