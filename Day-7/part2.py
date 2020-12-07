@@ -14,7 +14,7 @@ for n in data:
 p(graph)
 
 # VIZ
-drawDGraph("bag_heirarchy_weights",graph)
+drawDGraph("full_graph",graph)
 
 def rec_count(graph,node,visited=[]):
     p = []
@@ -42,13 +42,26 @@ def n_count(graph,node,cache={}):
             i += nt + (nt*t)
     return i
 
-o = n_count(graph,"shiny gold")
+c = {}
+o = n_count(graph,"shiny gold",c)
 print(o)
 
-v = rec_count(graph,"shiny gold")
-v.append("shiny gold")
 # VIZ
-ng = {}
-for p in v:
-    ng[p] = [n for n in graph[p] if n[1] in v]
-drawDGraph("smaller_weights",ng)
+# c["shiny gold"] = 0
+# ng = {}
+# for p in c:
+#     ng[p] = [n for n in graph[p] if n[1] in c]
+# drawDGraph("part2",ng)
+
+# Final Graph of the whole problem
+# c["shiny gold"] = 0
+# ng = {}
+# for p in c:
+#     ng[p] = [n for n in graph[p] if n[1] in c]
+# v = rec_count(graph,"shiny gold")
+# v.append("shiny gold")
+# for p in v:
+#     if ng.get(p):
+#         ng[p] = ng[p] + [n for n in graph[p] if n[1] in v]
+#     else: ng[p] = [n for n in graph[p] if n[1] in v]
+# drawDGraph("problem_solution",ng)

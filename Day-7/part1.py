@@ -14,9 +14,6 @@ for n in data:
 p(graph)
 graph["other"] = []
 
-# VIZ
-drawGraph("bag_heirarchy",graph)
-
 def rec_count(graph,node,visited=[]):
     p = []
     for n in graph:
@@ -38,4 +35,4 @@ o.append("shiny gold")
 ng = {}
 for p in o:
     ng[p] = [n for n in graph[p] if n in o]
-drawGraph("smaller",ng)
+drawGraph("part1",ng)
