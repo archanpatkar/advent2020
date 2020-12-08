@@ -33,28 +33,19 @@ def trace(code,limit=1000000,memory={"acc":0,"ip":0}):
         i += 1
     return (i < limit,memory,trace)
 
+swap = {
+    "nop":"jmp",
+    "jmp":"nop"
+}
+
 tdata = []
 success = None
 for i in range(len(data)):
     ins = data[i]
-    if ins[0] == "nop":
-        print("changing nop")
+    if ins[0] in ["nop","jmp"]:
+        print("changing {}".format(ins[0]))
         old = ins
-        data[i] = ("jmp",ins[1])
-        t = trace(data)
-        tdata.append(t)
-        print(t[1])
-        if t[0]:
-            success = i
-            data[i] = old
-            break
-        else: 
-            print("backtracking")
-            data[i] = ins
-    elif ins[0] == "jmp":
-        print("changing jmp")
-        old = ins
-        data[i] = ("nop",ins[1])
+        data[i] = (swap[ins[0]],ins[1])
         t = trace(data)
         tdata.append(t)
         print(t[1])
@@ -69,8 +60,7 @@ print("{} instruction should change".format(success))
 if success:
     print("from:")
     p(data[success])
-    if data[success][0] == "jmp": data[success] = ("nop",data[success][1])
-    else: data[success] = ("jmp",data[success][1])
+    data[success] = (swap[data[success][0]],data[success][1])
     print("to:")
     p(data[success])
 p(machine(data))
