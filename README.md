@@ -34,3 +34,9 @@ Advent of Code 2020
 ## Day 7
 
 <img src="./Day-7/problem_solution.gv.svg" />
+
+## Day 8
+
+<img src="./Day-8/all_possible.png" />
+<img src="./Day-8/final_program_trace.png" />
+<img src="./Day-8/programgraph.svg" />
