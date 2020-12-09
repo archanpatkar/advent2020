@@ -10,6 +10,7 @@ p(data);
 
 preamble = 25
 i = preamble
+weakness = -1
 while i < len(data):
     last25sum = set()
     for j in data[i-preamble:i]:
@@ -18,4 +19,6 @@ while i < len(data):
     if data[i] in last25sum:
         i += 1
         continue;
+    weakness = data[i]
     break;
+print(weakness)
