@@ -40,3 +40,8 @@ Advent of Code 2020
 <img src="./Day-8/all_possible.png" />
 <img src="./Day-8/final_program_trace.png" />
 <img src="./Day-8/programgraph.svg" />
+
+## Day 9
+
+<img src="./Day-9/contiguous_set.svg" />
+
