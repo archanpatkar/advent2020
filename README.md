@@ -45,3 +45,7 @@ Advent of Code 2020
 
 <img src="./Day-9/contiguous_set.svg" />
 
+## Day 10
+
+<img src="./Day-10/numbers.svg" />
+
