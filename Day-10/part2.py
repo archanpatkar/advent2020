@@ -21,7 +21,6 @@ for n in data:
         elif n+3 == m: nodes.append(m)
     graph[n] = nodes
 p(graph)
-drawDGraph("numbers",graph,lambda n:str(n),format="svg",shape="circle",color="lightgrey")
 
 def count(n,graph,visited={}):
     next = graph[n]
@@ -29,7 +28,7 @@ def count(n,graph,visited={}):
     cc = 0
     for poss in next:
         if not poss in visited:
-            visited[poss] = count(poss,graph)
+            visited[poss] = count(poss,graph,visited)
             cc += visited[poss]
         else: cc += visited[poss]
     return cc
