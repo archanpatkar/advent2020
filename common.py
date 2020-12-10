@@ -7,6 +7,7 @@ from graphviz import Graph, Digraph
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+import seaborn as sns; sns.set_theme()
 
 def scatter3d(x,y,z,name,xl="X",yl="Y",zl="Z"):
     fig = plt.figure()
@@ -266,12 +267,17 @@ def drawGraph(path,graph,process=iden,format="svg"):
             g.edge(process(n),process(e))
     g.render(cleanup=True)
 
-def drawDGraph(path,graph,process=iden,format="svg"):
-    g = Digraph(format=format,name=path)
+def drawDGraph(path,graph,process=iden,format="svg",**attrs):
+    g = Digraph(format=format,name=path,filename=path)
+    if attrs:
+        g.attr(**attrs)
     for n in graph:
         for e in graph[n]:
             t = process(e)
-            g.edge(process(n),t[1],label=str(t[0]))
+            if isinstance(t,tuple):
+                g.edge(process(n),t[1],label=str(t[0]))
+            else:
+                g.edge(process(n),t)
     g.render(cleanup=True)
 
 def aoci(func=iden):

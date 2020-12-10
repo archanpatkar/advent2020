@@ -1,3 +1,7 @@
+import sys
+import math
+sys.path.append("..")
+from common import piechart
 from pprint import pprint
 data = open("input.txt","r").read();
 def handle(input):
@@ -23,3 +27,4 @@ i = 0
 for passw in data:
     if poscheck(passw): i+=1
 print(i)
+piechart([i,len(data)-i],"Part2",["Valid","Invalid"],"%10.4f cent.")

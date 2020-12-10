@@ -30,4 +30,7 @@ for seat in data:
     rc.append(seat)
     ids.append((seat[0]*8)+seat[1])
 ids.sort()
+p(rc)
 p(ids[len(ids)-1])
+c, d = zip(*rc)
+scatterplot(c,d,"Part1","Rows","Columns")

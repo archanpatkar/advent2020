@@ -11,8 +11,12 @@ data = aoci(parse);
 p(data);
 
 n = 0
+persec = []
 for sec in data:
+    temp = n
     for k in sec[0]:
         if k != " " and sec[0][k] == sec[1]:
             n += 1
+    persec.append((n-temp))
 print(n)
+barchart(range(len(data)),persec,"Part2")

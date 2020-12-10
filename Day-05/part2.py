@@ -41,3 +41,4 @@ while i < (len(ids)-2):
         break;
     i += 1
 print(openseats)
+scatterplot(rc[i][0],rc[i][1],"Part2","Rows","Columns")

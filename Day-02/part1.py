@@ -1,3 +1,7 @@
+import sys
+import math
+sys.path.append("..")
+from common import barchart, scatterplot, piechart
 from pprint import pprint
 data = open("input.txt","r").read();
 def handle(input):
@@ -18,9 +22,20 @@ def freq(str):
         else: l[c] = 1
     return l
 
+il = []
+nl = []
+cl = []
 i = 0
 for passw in data:
     letters = freq(passw[2])
     n = letters.get(passw[1])
-    if n and n >= passw[0][0] and n <= passw[0][1]: i += 1
+    if n and n >= passw[0][0] and n <= passw[0][1]: 
+        cl.append(passw[1])
+        nl.append(n)
+        il.append(i)
+        i += 1
+
 print(i)
+# scatterplot(nl,il,"Part1a")
+# barchart(cl,nl,"Part1b")
+piechart([i,len(data)-i],"Part1",["Valid","Invalid"],"%10.4f cent.")

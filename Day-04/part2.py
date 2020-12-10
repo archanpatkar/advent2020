@@ -69,8 +69,13 @@ def pid(c):
 
 keys = ["byr","iyr","eyr","hgt","hcl","ecl","pid","cid"]
 valid = 0
+wocid1 = 0
+wocid2 = 0
 for passp in data:
     if len(passp.keys()) == 8 or (len(passp.keys()) == 7 and not("cid" in passp)):
+        if not("cid" in passp): wocid1 += 1
         if year(passp["byr"],1920,2002) and year(passp["iyr"],2010,2020) and year(passp["eyr"],2020,2030) and height(passp["hgt"]) and haircolor(passp["hcl"]) and (passp["ecl"] in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]) and pid(passp["pid"]):
+            if not("cid" in passp): wocid2 += 1
             valid += 1
 print(valid)
+piechart([valid-wocid1,wocid2,(wocid1-wocid2),len(data)-valid],"Part2",["Valid Passports","Without CID Valid","Without CID Invalid","Invalid Passports"],"%10.4f cent.")
