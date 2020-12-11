@@ -49,3 +49,12 @@ Advent of Code 2020
 
 <img src="./Day-10/numbers.svg" />
 
+## Day 11
+
+### `Part 1`
+<img src="./Day-11/part1.gif" height="400em" width="350em"/>
+
+### `Part 2`
+<img src="./Day-11/part2.gif" height="400em" width="350em"/>
+
+
