@@ -52,9 +52,9 @@ Advent of Code 2020
 ## Day 11
 
 ### `Part 1`
-<img src="./Day-11/part1.gif" />
+<img src="./Day-11/part1.gif" height="40em" width="35em"/>
 
 ### `Part 2`
-<img src="./Day-11/part2.gif" />
+<img src="./Day-11/part2.gif" height="40em" width="35em"/>
 
 
