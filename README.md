@@ -47,7 +47,7 @@ Advent of Code 2020
 
 ## Day 10
 
-<img src="./Day-10/numbers.svg" height="500em" width="150em" />
+<img src="./Day-10/numbers.svg" height="800em" width="300em" />
 
 ## Day 11
 
