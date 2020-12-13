@@ -18,8 +18,8 @@ for n in data:
         offsets.append(t)
     t += 1
 
-print(busids)
 print(offsets)
+print(busids)
 
 # Taken from rosetta code
 def chinese_remainder(n, a):
@@ -41,8 +41,7 @@ def mul_inv(a, b):
     if x1 < 0: x1 += b0
     return x1
 
-print([busids[i]-offsets[i] for i in range(len(offsets))])
-print(chinese_remainder(busids,[busids[i]-offsets[i] for i in range(len(offsets))]))
+print(lcm(busids)-chinese_remainder(busids,offsets))
 
 # Bruteforce
 # step = busids[0]
