@@ -89,6 +89,10 @@ UP = (0,-1)
 DOWN = (0,1)
 LEFT = (-1,0)
 RIGHT = (1,0)
+LUD = (-1,-1)
+RUD = (1,-1)
+LLD = (-1,1)
+RLD = (1,1)
 
 n4l = [
             UP,  
@@ -145,6 +149,9 @@ def ew(str,e):
 def sw(str,e):
     return str.startswith(e)
 
+def lcm(denominators):
+    return reduce(lambda a,b: a*b // gcd(a,b), denominators)
+
 nums = ["0","1","2","3","4","5","6","7","8","9"]
 
 def ks(dict):
@@ -178,6 +185,7 @@ def bs(v,s,e):
     return v > s and v <= e;
 
 def checkeg(ns,xlen,ylen,ch=bf):
+    print(ns)
     return tuple(filter(lambda p: ch(p.x,0,xlen) and ch(p.y,0,ylen), ns))
 
 def forall(l,f):
@@ -201,6 +209,18 @@ iden = lambda x: x
 def grid(data,sep=""):
     return list(map(lambda l: l.split(sep),data.split("\n")));
 
+def extended_euclidean(a, b): 
+    if a == 0: 
+        return (b, 0, 1) 
+    else: 
+        g, y, x = extended_euclidean(b % a, a) 
+        return (g, x - (b // a) * y, y) 
+  
+# modular inverse driver function 
+def modinv(a, m): 
+    g, x, y = extended_euclidean(a, m) 
+    return x % m 
+
 # wip
 # assume l[n][1] is mod
 def crt(l):
@@ -208,9 +228,9 @@ def crt(l):
     k = len(ms)
     N = mult(ms)
     y = [N/m for m in ms]
-    z = [(y[i] ** -1) % ms[i] for i in range(k)]
+    z = [modinv(y[i],ms[i]) for i in range(k)]
     x = [l[i][0]*y[i]*z[i] for i in range(k)]
-    return (add(x),N,add(x)%N)
+    return (add(x)%N,N)
 
 def unionfind(*lists):
     ss = enumerate(map(lambda l: set(l),lists))
@@ -280,6 +300,32 @@ def drawDGraph(path,graph,process=iden,format="svg",**attrs):
                 g.edge(process(n),t)
     g.render(cleanup=True)
 
+def comb(base,d,start,process=lambda x:"".join(x)):
+    done = [start]
+    q = []
+    for k in d[start]:
+        var = list(base)
+        var[start] = k
+        q.append(var)
+    for o in d:
+        if not o in done:
+            next = []
+            while len(q) != 0:
+                e = q.pop(0)
+                for k in d[o]:
+                    var = list(e)
+                    var[o] = k
+                    next.append(process(var))
+            q = next
+            done.append(o)
+    return q
+
+def all_poss_var(l,marker,values):
+    d = {}
+    for e in range(len(l)):
+        if l[e] == marker: d[e] = values
+    return comb(list(l),d,list(d.keys())[0])
+    
 def aoci(func=iden):
     return func(open("input.txt","r").read());
 
