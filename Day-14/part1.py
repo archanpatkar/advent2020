@@ -33,10 +33,9 @@ nc = []
 m = 0
 while m < len(data):
     i = 1
-    mask = data[m]
     while m+i < len(data) and data[m+i][0] != "mask":
         mem = data[m+i]
-        nw = valMask(binary(mem[2]).rjust(36,"0"),mask[1])
+        nw = valMask(binary(mem[2]).rjust(36,"0"),data[m][1])
         nc.append((mem[0],mem[1],nw))
         i += 1
     m += i

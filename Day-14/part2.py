@@ -56,10 +56,9 @@ nc = []
 m = 0
 while m < len(data):
     i = 1
-    mask = data[m]
     while m+i < len(data) and data[m+i][0] != "mask":
         mem = data[m+i]
-        ad = addrMask(binary(mem[1]).rjust(36,"0"),mask[1])
+        ad = addrMask(binary(mem[1]).rjust(36,"0"),data[m][1])
         nc.append((mem[0],ad,mem[2]))
         i += 1
     m += i
