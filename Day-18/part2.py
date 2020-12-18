@@ -8,23 +8,10 @@ opsm = {
 }
 
 def toks(str):
-    i = 0
-    l = len(str)
     tokens = []
-    while i < l:
-        curr = str[i]
-        if curr.isnumeric():
-            buff = "" + curr
-            i += 1
-            if i < l: curr = str[i]
-            while curr.isnumeric() and i < l:
-                buff += curr
-                i += 1
-                curr = str[i]
-            tokens.append(int(buff))
-        else:
-            tokens.append(curr)
-            i += 1
+    for ch in str:
+        if ch.isnumeric(): tokens.append(int(ch))
+        else: tokens.append(ch)
     return tokens
 
 def atom(toks):
@@ -38,22 +25,13 @@ def atom(toks):
     
 def expr(toks,last=None):
     left = atom(toks) if not last else last
-    if len(toks) > 0: 
-        while len(toks) > 0 and (toks[0] == "+" or toks[0] == "*"):
-            op = opsm[toks.pop(0)]
-            next = atom(toks)
-            if op == opsm["*"] and len(toks) > 0 and toks[0] == "+":
-                left = [op,left,expr(toks,next)]
-            else: left = [op,left,next]
+    while len(toks) > 0 and toks[0] in opsm:
+        op = opsm[toks.pop(0)]
+        next = atom(toks)
+        if op == opsm["*"] and len(toks) > 0 and toks[0] == "+":
+            left = [op,left,expr(toks,next)]
+        else: left = [op,left,next]
     return left
-
-def parse(data):
-    exp = "".join(data.split(" "))
-    print(exp)
-    return expr(toks(exp))
-
-data = fnl(parse);
-p(data);
 
 def eval(ast):
     op = ast[0]
@@ -62,5 +40,11 @@ def eval(ast):
     if isinstance(ast[2],list):
         ast[2] = eval(ast[2])
     return op(ast[1],ast[2])
+
+def parse(data):
+    return expr(toks("".join(data.split(" "))))
+
+data = fnl(parse);
+p(data);
 
 print(sum([eval(l) for l in data]))

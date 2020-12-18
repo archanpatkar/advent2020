@@ -8,25 +8,12 @@ opsm = {
 }
 
 def toks(str):
-    i = 0
-    l = len(str)
     tokens = []
-    while i < l:
-        curr = str[i]
-        if curr.isnumeric():
-            buff = "" + curr
-            i += 1
-            if i < l: curr = str[i]
-            while curr.isnumeric() and i < l:
-                buff += curr
-                i += 1
-                curr = str[i]
-            tokens.append(int(buff))
-        else:
-            tokens.append(curr)
-            i += 1
+    for ch in str:
+        if ch.isnumeric(): tokens.append(int(ch))
+        else: tokens.append(ch)
     return tokens
-
+    
 def atom(toks):
     curr = toks.pop(0)
     if isinstance(curr,int):
@@ -38,10 +25,9 @@ def atom(toks):
     
 def expr(toks):
     left = atom(toks)
-    if len(toks) > 0: 
-        while len(toks) > 0 and (toks[0] == "+" or toks[0] == "*"):
-            op = opsm[toks.pop(0)]
-            left = [op,left,atom(toks)]
+    while len(toks) > 0 and toks[0] in opsm:
+        op = opsm[toks.pop(0)]
+        left = [op,left,atom(toks)]
     return left
 
 def eval(ast):
@@ -53,9 +39,7 @@ def eval(ast):
     return op(ast[1],ast[2])
 
 def parse(data):
-    exp = "".join(data.split(" "))
-    print(exp)
-    return expr(toks(exp))
+    return expr(toks("".join(data.split(" "))))
 
 data = fnl(parse);
 p(data);
