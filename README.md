@@ -6,8 +6,6 @@ Advent of Code 2020
 
 
 ## Selected Visualizations
-### `Day 1`
-<img src="./Day-01/Part2.png" />
 
 ### `Day 3`
 
