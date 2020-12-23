@@ -49,4 +49,4 @@ Advent of Code 2020
 ### `Day 22`
 
 ##### Part 1
-<img src="./Day-22/part1.gif" height="1000em" width="250em"/>
+<img src="./Day-22/part1.gif" height="2000em" width="250em"/>
