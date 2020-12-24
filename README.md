@@ -49,7 +49,7 @@ Advent of Code 2020
 ### `Day 24`
 
 ##### Part 1
-<img src="./Day-24/part1.png" />
+<img src="./Day-24/part1.png" height="400em" width="400em"/>
 
 ##### Part 2
 <img src="./Day-24/part2.gif" />
