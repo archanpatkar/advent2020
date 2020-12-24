@@ -52,4 +52,4 @@ Advent of Code 2020
 <img src="./Day-24/part1.png" height="400em" width="400em"/>
 
 ##### Part 2
-<img src="./Day-24/part2.gif" />
+<img src="./Day-24/part2.gif" height="400em" width="400em"/>
