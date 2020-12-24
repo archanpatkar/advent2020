@@ -7,13 +7,11 @@ def parse(data):
     temp = []
     prev = ""
     for ch in data:
-        if (ch == "e" or ch == "w") and len(prev) == 0:
-            temp.append(ch)
+        if (ch == "e" or ch == "w") and len(prev) == 0: temp.append(ch)
         elif ch == "e" or ch == "w" and len(prev):
             temp.append(prev+ch)
             prev = ""
-        else:
-            prev = ch
+        else: prev = ch
     return tuple(temp)
 
 data = fnl(parse)
