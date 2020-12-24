@@ -46,7 +46,10 @@ Advent of Code 2020
 ##### Part 2
 <img src="./Day-17/Part2.png" />
 
-### `Day 22`
+### `Day 24`
 
 ##### Part 1
-<img src="./Day-22/part1.gif" height="2000em" width="250em"/>
+<img src="./Day-24/part1.png" />
+
+##### Part 2
+<img src="./Day-24/part2.gif" />
