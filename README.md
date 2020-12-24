@@ -1,8 +1,7 @@
 # advent2020
-> The current state of codebase is in less than ideal form
+> The code is in a rough state
 
-
-Advent of Code 2020
+Solutions to the Advent of Code 2020 (link)[https://adventofcode.com/2020]
 
 
 ## Selected Visualizations
