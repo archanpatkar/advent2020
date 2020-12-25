@@ -1,4 +1,3 @@
-from os import rename
 import sys
 sys.path.append("..")
 from common import *
