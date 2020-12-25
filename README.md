@@ -25,7 +25,7 @@ Solutions to the Advent of Code [2020](https://adventofcode.com/2020)
 
 ### `Day 9`
 
-<img src="./Day-09/contiguous_set.svg" />
+<img src="./Day-09/contiguous_set.svg" height="500em" />
 
 ### `Day 11`
 
