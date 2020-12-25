@@ -8,8 +8,11 @@ Solutions to the Advent of Code [2020](https://adventofcode.com/2020)
 
 ### `Day 3`
 
-<img src="./Day-03/Part1.png" />
-<img src="./Day-03/Part2.png" />
+<img src="./Day-03/4.png" />
+<img src="./Day-03/0.png" />
+<img src="./Day-03/1.png" />
+<img src="./Day-03/2.png" />
+<img src="./Day-03/3.png" />
 
 ### `Day 6`
 
