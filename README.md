@@ -48,6 +48,11 @@ Solutions to the Advent of Code [2020](https://adventofcode.com/2020)
 ##### Part 2
 <img src="./Day-17/Part2.png" />
 
+### `Day 20`
+
+##### Part 2
+<img src="./Day-24/monsters.png" />
+
 ### `Day 24`
 
 ##### Part 1
